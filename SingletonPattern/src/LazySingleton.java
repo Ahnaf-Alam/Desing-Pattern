@@ -1,7 +1,11 @@
 public class LazySingleton {
     public static LazySingleton instance;
 
-    private LazySingleton(){}
+    private LazySingleton(){
+        if(instance != null) {
+            throw new IllegalArgumentException();
+        }
+    }
 
     public static LazySingleton getInstance(){
         if(instance == null) {
